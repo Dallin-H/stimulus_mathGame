@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en'">
+  <head>
+    <link rel="stylesheet" type="text/css" href="screen.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Game</title>
+  </head>
+  <body>
+    <main>
+    <div data-controller="game"
+         data-game-limit="20"
+         data-game-team-one-points="0"
+         data-game-team-two-points="0"
+         data-game-win-condition="5"
+         >
+      <div class="flex-wrapper" data-target="game.difficulty">
+        <h2>Level Select</h2>
+        <button data-target="game.easy"
+                data-action="game#setDifficulty"
+                value="20">1–20</button>
+        <button data-target="game.difficult"
+                data-action="game#setDifficulty"
+                value="100">1–100</button>
+      </div>
+      <div class="wrapper" data-target="game.board">
+        <div id="question">
+          <h2 data-target="game.question"></h2>
+          <h2 data-target="game.answer"></h2>
+        </div>
+        <div id="answer">
+          <button data-target="game.check" data-action="game#check">Check Answer</button>
+          <button data-target="game.next" data-action="game#next">Play Again</button>
+        </div>
+        <div data-target="game.teamOne" id="teamOne">
+          <h2>Team 1</h2>
+          <h3 data-target="game.pointsOne">0</h3>
+          <button data-action="game#increment"
+            value="teamOnePoints">&uarr;</button>
+          <button data-action="game#decrement"
+            value="teamOnePoints">&darr;</button>
+        </div>
+        <div data-target="game.teamTwo" id="teamTwo">
+          <h2>Team 2</h2>
+          <h3 data-target="game.pointsTwo">0</h3>
+          <button data-action="game#increment"
+            value="teamTwoPoints">&uarr;</button>
+          <button data-action="game#decrement"
+            value="teamTwoPoints">&darr;</button>
+        </div>
+        <div data-target="game.announcement" id="announcement"></div>
+      </div>
+    </div>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
